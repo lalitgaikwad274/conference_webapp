@@ -1,0 +1,305 @@
+/* .video-grid-container {
+   display: grid;
+   grid-template-columns: repeat(3, 1fr);
+   background-color: black;
+} */
+
+#video-container {
+    /* height: 400px;
+    width: 600px; */
+    height: 550px;
+    width: 880px;
+    /* background: blue; */
+    /* background: #00122e; */
+    background: #182842;
+    color: #fff;
+    grid-template-columns: repeat(3, 1fr);
+    display: flex;
+    border-radius: 10px;
+    /* overflow: scroll; */
+    overflow: auto;
+    /* display: grid; */
+    flex-wrap: wrap;
+}
+
+.main-grid-container {
+    display: grid;
+    grid-template-columns: 40% 40% 40%;
+}
+
+video {
+    border-radius: 10%;
+    padding: 10px;
+    /* background-color: black; */
+    background-color: #182842;
+    height: 200px;
+    width: 250px;
+}
+
+
+/* 
+ */
+
+#btn-audio-toggle {
+    background-color: #4d6181;
+}
+
+
+/* style for loader icon |||*/
+
+.loader {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.bar {
+    display: inline-block;
+    width: 3px;
+    height: 20px;
+    background-color: rgba(255, 255, 255, .5);
+    border-radius: 10px;
+    animation: scale-up 1s linear infinite;
+}
+
+.bar:nth-child(2) {
+    height: 35px;
+    margin: 0 5px;
+    animation-delay: .25s;
+}
+
+.bar:nth-child(3) {
+    animation-delay: .5s;
+}
+
+@keyframes scale-up {
+    20% {
+        background-color: #fff;
+        transform: scaleY(1.5);
+    }
+    40% {
+        transform: scaleY(1);
+    }
+}
+
+
+/*End for style loder  */
+
+
+/* style.css for header and navigation */
+
+.header {
+    width: 100%;
+    height: 100vh;
+    background: #00122e;
+    /* position: relative; */
+    position: fixed;
+}
+
+nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    background: #182842;
+    /* width: 120px; */
+    width: 70px;
+    padding: 10px 0;
+}
+
+nav .logo {
+    width: 56px;
+    display: block;
+    margin: auto;
+    cursor: pointer;
+}
+
+nav ul {
+    margin-top: 160px;
+    margin-left: -40px;
+}
+
+nav ul li {
+    list-style: none;
+}
+
+nav ul li img {
+    width: 35px;
+    display: block;
+    margin: 10px auto;
+    padding: 10px;
+    cursor: pointer;
+    opacity: 0.5;
+    border-radius: 10px;
+    transition: opacity 0.5s, background 0.5s;
+}
+
+nav ul li img:hover {
+    opacity: 1;
+    background: #4d6181;
+}
+
+.active {
+    opacity: 1;
+    background: #4d6181;
+}
+
+.container {
+    /* margin-left: 120px; */
+    margin-left: 50px;
+    padding: 0 2.5%;
+}
+
+.top-icons {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    /* padding: 25px 0; */
+    padding: 0px 0;
+}
+
+.top-icons img {
+    width: 25px;
+    margin-left: 40px;
+    cursor: pointer;
+}
+
+.row {
+    /* margin-top: 15px; */
+    margin-top: 0%;
+    display: flex;
+    justify-content: space-between;
+}
+
+.col-1 {
+    flex-basis: 65%;
+}
+
+.col-2 {
+    flex-basis: 33%;
+}
+
+.host-img {
+    width: 100%;
+    border-radius: 15px;
+}
+
+.contarols {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.contarols img {
+    width: 40px;
+    margin: 20px 10px;
+    cursor: pointer;
+    transition: transform 0.5s;
+}
+
+.contarols .call-icon {
+    width: 70px;
+}
+
+.contarols img:hover {
+    transform: translateY(-10px);
+}
+
+.joined {
+    background: #182842;
+    border-radius: 15px;
+    /* padding: 30px 40px 50px; */
+    padding: 0px 0px 0px 0px;
+    margin: 0px 0px 10px 0px;
+    /* top Left Bottom Right */
+    color: #fff;
+}
+
+.joined div {
+    margin-top: 20px;
+    margin-left: 30px;
+    /* mar add */
+    display: grid;
+    grid-template-columns: auto auto auto;
+    grid-gap: 20px;
+}
+
+.joined img {
+    width: 100%;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.invite {
+    background: #182842;
+    border-radius: 15px;
+    /* padding: 30px 40px 50px; */
+    padding: 0px 40px 190px 26px;
+    color: #fff;
+    overflow-y: scroll;
+    height: 140px;
+    /* overflow-wrap: auto; */
+}
+
+.invite img {
+    margin-top: 20px;
+    width: 50px;
+    margin-left: 5px;
+    border-radius: 50px;
+    cursor: pointer;
+}
+
+
+/* end off style.css */
+
+
+/* style for buttons */
+
+.btn-join {
+    text-decoration: none;
+    font-size: 25px;
+    color: #1fe8b6;
+    padding: 20px 50px;
+    border: 3px solid #1fe8b6;
+    position: relative;
+}
+
+.btn-join::before,
+.btn-join::after {
+    content: "";
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    border: inherit;
+    transition: all .5s;
+}
+
+.btn-join::before {
+    top: -15px;
+    left: -15px;
+    border-width: 3px 0 0 3px;
+}
+
+.btn-join::after {
+    bottom: -15px;
+    right: -15px;
+    border-width: 0 3px 3px 0;
+}
+
+.btn-join:hover::before,
+.btn-join:hover::after {
+    width: cal(100% + 27px);
+    height: calc(100% + 27px);
+}
+
+
+/* End Of style for buttons */
+
+#message {
+    width: auto;
+    height: 100px;
+}
+
+.pp {
+    padding: 10px 10px 10px 10px;
+}

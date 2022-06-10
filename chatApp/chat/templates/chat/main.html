@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+
+{% load static %}
+
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Video Conferencing Website</title>
+    <style>
+      /* width */
+      ::-webkit-scrollbar {
+        width: 5px;
+      }
+      
+      /* Track */
+      ::-webkit-scrollbar-track {
+        {% comment %} background: #00122e;  {% endcomment %}
+        background: #182842; 
+      }
+       
+      /* Handle */
+      ::-webkit-scrollbar-thumb {
+         background: #00122e; 
+        {% comment %} background: #182842;  {% endcomment %}
+      }
+      
+      /* Handle on hover */
+      ::-webkit-scrollbar-thumb:hover {
+        background: #555; 
+      }
+      </style>
+      <script type="text/javascript">
+         // close button on click 
+
+function closeCurrentTab() {
+   var conf = confirm("Are you sure, you want to close this tab?");
+   if (conf == true) {
+      close();
+   }
+}
+      </script>
+
+      <link rel="stylesheet" href="{%static 'css/main.css'%}" />
+   </head>
+   <body>
+      
+      <div class="header">
+         <nav>
+            <div class="loader">
+               <span class="bar"></span>
+               <span class="bar"></span>
+               <span class="bar"></span>
+             </div>
+             {% comment %} <ul>
+               <li><img src="{% static 'images/live.png' %}" class="active" /></li>
+               <li><img src="{% static 'images/video.png' %}" /></li>
+               <li><img src="{% static 'images/message.png' %}" /></li>
+            </ul> {% endcomment %}
+         </nav>
+ 
+         <div class="container">
+            <div class="top-icons">
+               {% csrf_token %}
+      {{ room_name|json_script:"room-name" }}
+               <h3 id="label-username" style="color: white; margin-right: auto">
+                 USERNAME
+               </h3>
+               <div>
+                  <input id="username" />
+                  <button id="btn-join">Join</button>
+                  <button id="btn-toggle-audio">audio mute</button>
+                  <button id="btn-toggle-video">video off</button>
+                  <button id="btn-share-screen">Share Screen</button>
+                </div>
+                <div>
+                  <p><input type="button" value="Leave" onclick="closeCurrentTab()"></p>
+                 </div>
+            </div>
+             <div class="row">
+                 <div class="col-1">
+                    {% comment %} <img src="images/image.jpg" class="host-img" alt="Main screen"> {% endcomment %}
+                    <div class="main-grid-conatiner">
+                       <p style="color:white;" class="pp">People Joined</p>
+                       <div id="video-container">
+                           {% comment %} <div>
+                              <video
+                                 id="local-video"
+                                 style="float: left;"
+                                 autoplay
+                                 playsinline
+                                 ></video>
+                           </div> {% endcomment %}
+                           <div>
+                           </div>
+                        </div>
+                     </div>
+                     <div class="contarols">
+                         
+                        <!-- <img src="{% static 'images/chat.png' %}"/>-->
+             {% comment %} <img src="{% static 'images/disconnect.png' %}" class="call-icon" />
+             <button id="btn-toggle-audio">
+                <img src="{% static 'images/mic.png' %}" />
+             </button>
+             <img src="{% static 'images/cast.png' %}" />
+             <img src="{% static 'images/call.png' %}" /> {% endcomment %}
+                         <!-- <img src="{% static 'images/cast.png' %}"> -->
+                     </div>
+                 </div>
+                 <div class="col-2">
+                     <div class="joined">
+                         <p>owner</p>
+                         <div>
+                           <video
+                              id="local-video"
+                              style="float: left;"
+                              autoplay
+                              playsinline
+                           ></video>
+                        </div>
+                     </div>
+                     <!-- <div class="invite">
+                         <p>Invite More People</p>
+                         <div>
+                             <img src="images/user-1.png">
+                             <img src="images/user-2.png">
+                             <img src="images/user-3.png">
+                             <img src="images/user-4.png">
+                             <img src="images/user-5.png">
+                         </div>
+
+                     </div> -->
+                     <div class="invite">
+                         <p>Messenger</p>
+                         <div>
+                           <div id="chat">
+                              <h3>CHAT</h3>
+                              <div id="messges">
+                                 <ul id="message-list"></ul>
+                              </div>
+                  
+                              <div>
+                                 <input id="msg" /><button id="btn-send-msg">Send Message</button>
+                              </div>
+                           </div>
+                           
+                        </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ 
+
+
+
+      <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+   </body>
+</html>
